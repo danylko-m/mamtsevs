@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — Страница за кадром | ARTWORK BY MAMTSEVS</title>
+    <meta name="description" content="Страница не найдена или обновляется. Семейный, свадебный и репортажный фотограф (Аделина) и видеограф (Даниил) в Санкт-Петербурге.">
+    <meta name="robots" content="noindex, follow">
+
+    <!-- Google Fonts: Cormorant Garamond и Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==========================================================================
+           ПЕРЕМЕННЫЕ ТЕМ (СВЕТЛАЯ И ТЕМНАЯ — ГЛАДКИЙ ГЛУБОКИЙ БАРХАТ)
+           ========================================================================== */
+        :root,
+        :root[data-theme="light"] {
+            --bg-main: #FAF8F5;
+            --bg-secondary: #F2ECE4;
+            --bg-card: #FFFFFF;
+            --bg-elevated: #FAF6F0;
+            --text-main: #1A1917;
+            --text-muted: #66615B;
+            --accent: #8C6D53;
+            --accent-hover: #70553F;
+            --accent-soft: rgba(140, 109, 83, 0.12);
+            --border-color: #E4DDD3;
+            --header-bg: rgba(250, 248, 245, 0.94);
+            --shadow: 0 18px 45px rgba(26, 25, 23, 0.05);
+            --shadow-hover: 0 28px 60px rgba(26, 25, 23, 0.10);
+            --badge-bg: #1A1917;
+            --badge-text: #FAF8F5;
+            --ambient-glow-1: rgba(140, 109, 83, 0.08);
+            --ambient-glow-2: rgba(186, 155, 128, 0.07);
+        }
+
+        :root[data-theme="dark"] {
+            --bg-main: #0D0D0C;
+            --bg-secondary: #141413;
+            --bg-card: #191817;
+            --bg-elevated: #21201E;
+            --text-main: #F5F2EB;
+            --text-muted: #9E9990;
+            --accent: #CFAF91;
+            --accent-hover: #E3C7AC;
+            --accent-soft: rgba(207, 175, 145, 0.14);
+            --border-color: #282624;
+            --header-bg: rgba(13, 13, 12, 0.94);
+            --shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+            --shadow-hover: 0 30px 65px rgba(0, 0, 0, 0.75);
+            --badge-bg: #CFAF91;
+            --badge-text: #0D0D0C;
+            --ambient-glow-1: rgba(207, 175, 145, 0.07);
+            --ambient-glow-2: rgba(140, 109, 83, 0.05);
+        }
+
+        /* ==========================================================================
+           БАЗОВЫЕ СТИЛИ
+           ========================================================================== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-main);
+            background-image: 
+                radial-gradient(circle at 12% 8%, var(--ambient-glow-1) 0%, transparent 38%),
+                radial-gradient(circle at 88% 26%, var(--ambient-glow-2) 0%, transparent 42%),
+                radial-gradient(circle at 50% 75%, var(--ambient-glow-1) 0%, transparent 45%);
+            color: var(--text-main);
+            line-height: 1.6;
+            transition: background-color 0.35s ease, color 0.35s ease;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, .serif {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-weight: 600;
+            line-height: 1.15;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.28s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            width: 100%;
+        }
+
+        /* ==========================================================================
+           ШАПКА САЙТА
+           ========================================================================== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--header-bg);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--border-color);
+            transition: background-color 0.35s ease, border-color 0.35s ease;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            min-height: 74px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            line-height: 1.18;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .logo span {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.63rem;
+            letter-spacing: 0.15em;
+            color: var(--text-muted);
+            font-weight: 400;
+            margin-top: 5px;
+            line-height: 1.35;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .theme-toggle {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 8px 14px;
+            border-radius: 50px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--accent);
+        }
+
+        .theme-icon-svg {
+            width: 14px;
+            height: 14px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--text-main);
+            color: var(--bg-main);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.14);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent);
+            color: #FFFFFF;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border-color: var(--border-color);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-main);
+            background-color: var(--bg-secondary);
+            transform: translateY(-2px);
+        }
+
+        .btn-sm {
+            padding: 9px 20px;
+            font-size: 0.82rem;
+        }
+
+        /* ==========================================================================
+           ЦЕНТРАЛЬНЫЙ БЛОК 404
+           ========================================================================== */
+        .error-main {
+            padding-top: 130px;
+            padding-bottom: 64px;
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .error-card {
+            max-width: 880px;
+            margin: 0 auto 44px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 26px;
+            padding: 52px 44px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 16px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-bottom: 22px;
+        }
+
+        .badge-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            box-shadow: 0 0 0 4px var(--accent-soft);
+        }
+
+        .error-code {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: clamp(4.2rem, 10vw, 7rem);
+            font-weight: 600;
+            line-height: 0.95;
+            color: var(--accent);
+            letter-spacing: 0.04em;
+            margin-bottom: 14px;
+            opacity: 0.9;
+        }
+
+        .error-title {
+            font-size: clamp(2rem, 4.2vw, 3.2rem);
+            line-height: 1.1;
+            margin-bottom: 18px;
+            letter-spacing: -0.01em;
+        }
+
+        .error-title em {
+            font-style: italic;
+            font-weight: 400;
+            color: var(--accent);
+        }
+
+        .error-text {
+            font-size: 1rem;
+            color: var(--text-muted);
+            max-width: 620px;
+            margin: 0 auto 30px;
+            font-weight: 300;
+            line-height: 1.65;
+        }
+
+        .error-actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-bottom: 30px;
+        }
+
+        .status-note {
+            display: inline-block;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 14px 22px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            max-width: 640px;
+        }
+
+        .status-note strong {
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        /* ==========================================================================
+           ПРЯМЫЕ КОНТАКТЫ (КАК НА ГЛАВНОЙ СТРАНИЦЕ)
+           ========================================================================== */
+        .section-header {
+            text-align: center;
+            max-width: 740px;
+            margin: 0 auto 28px;
+        }
+
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.74rem;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .section-tag::before,
+        .section-tag::after {
+            content: "";
+            width: 22px;
+            height: 1px;
+            background-color: var(--accent);
+            opacity: 0.55;
+        }
+
+        .section-title {
+            font-size: clamp(1.75rem, 3.2vw, 2.35rem);
+            margin-bottom: 8px;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 0.94rem;
+            font-weight: 300;
+        }
+
+        .contacts-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            max-width: 880px;
+            margin: 0 auto;
+        }
+
+        .contact-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 24px 26px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .contact-btn-left {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            text-align: left;
+        }
+
+        .contact-platform {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .contact-label {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .contact-sub {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .contact-arrow {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--bg-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover .contact-arrow {
+            background: var(--text-main);
+            color: var(--bg-main);
+        }
+
+        footer {
+            padding: 32px 0 40px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 0.84rem;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            .contacts-grid {
+                grid-template-columns: 1fr;
+            }
+            .error-card {
+                padding: 36px 22px;
+            }
+            .error-main {
+                padding-top: 112px;
+                padding-bottom: 44px;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .container {
+                padding: 0 16px;
+            }
+            .logo {
+                font-size: 1.12rem;
+                letter-spacing: 0.04em;
+            }
+            .logo span {
+                font-size: 0.58rem;
+                letter-spacing: 0.11em;
+                margin-top: 4px;
+            }
+            .header-actions .btn-sm {
+                display: none;
+            }
+            .error-actions .btn {
+                width: 100%;
+            }
+            .contact-btn {
+                padding: 20px 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ======================= ШАПКА САЙТА ======================= -->
+    <header>
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                Artwork by Mamtsevs
+                <span>Фото & Видео • Санкт-Петербург</span>
+            </a>
+
+            <div class="header-actions">
+                <button class="theme-toggle" id="themeToggle" type="button" aria-label="Переключить тему">
+                    <svg class="theme-icon-svg" id="themeSvg" viewBox="0 0 24 24">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <span id="themeText">Темная</span>
+                </button>
+                <a href="/" class="btn btn-primary btn-sm">На главную</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ======================= ОСНОВНОЙ ЭКРАН 404 ======================= -->
+    <main class="error-main">
+        <div class="container">
+            <div class="error-card">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    <span>Кадр вне фокуса • Страница не найдена или обновляется</span>
+                </div>
+
+                <div class="error-code">404</div>
+
+                <h1 class="error-title">
+                    Кажется, эта страница осталась <em>за кадром</em>
+                </h1>
+
+                <p class="error-text">
+                    Возможно, в адресе ссылки опечатка, или прямо сейчас мы обновляем сайт и загружаем новые свадебные и семейные серии. Не теряйте нас — перейдите на главную страницу или напишите нам напрямую в любой мессенджер.
+                </p>
+
+                <div class="error-actions">
+                    <a href="/" class="btn btn-primary">← Вернуться на главную</a>
+                    <a href="https://t.me/+79295716800?text=%D0%94%D0%BE%D0%B1%D1%80%D0%BE%D0%B3%D0%BE%20%D0%B4%D0%BD%D1%8F.%0A%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%20%D1%83%20%D0%B2%D0%B0%D1%81%20%D1%81%D1%8A%D0%B5%D0%BC%D0%BA%D1%83%21" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Узнать свободную дату в Telegram</a>
+                </div>
+
+                <div class="status-note">
+                    <strong>Если главная страница временно на обновлении:</strong> сохраните наш сайт <strong>mamtsevs.ru</strong> в закладки и напишите Аделине или Даниилу ниже — мы пришлем портфолио, актуальный прайс и ответим на все вопросы.
+                </div>
+            </div>
+
+            <!-- Блок быстрых контактов -->
+            <div class="section-header">
+                <span class="section-tag">Мы всегда на связи</span>
+                <h2 class="section-title">Свяжитесь с нами напрямую</h2>
+                <p class="section-subtitle">Ответим в мессенджере, покажем полные серии и проверим вашу дату.</p>
+            </div>
+
+            <div class="contacts-grid">
+                <a href="https://t.me/+79295716800?text=%D0%94%D0%BE%D0%B1%D1%80%D0%BE%D0%B3%D0%BE%20%D0%B4%D0%BD%D1%8F.%0A%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%20%D1%83%20%D0%B2%D0%B0%D1%81%20%D1%81%D1%8A%D0%B5%D0%BC%D0%BA%D1%83%21" target="_blank" rel="noopener noreferrer" class="contact-btn">
+                    <div class="contact-btn-left">
+                        <span class="contact-platform">Telegram</span>
+                        <span class="contact-label">Заказать в ЛС в Телеграм</span>
+                        <span class="contact-sub">Быстрый ответ в личных сообщениях</span>
+                    </div>
+                    <div class="contact-arrow">↗</div>
+                </a>
+
+                <a href="https://vk.me/popovkinaa" target="_blank" rel="noopener noreferrer" class="contact-btn">
+                    <div class="contact-btn-left">
+                        <span class="contact-platform">ВКонтакте</span>
+                        <span class="contact-label">Заказать в ЛС во ВКонтакте</span>
+                        <span class="contact-sub">vk.com/popovkinaa</span>
+                    </div>
+                    <div class="contact-arrow">↗</div>
+                </a>
+
+                <a href="https://www.instagram.com/mamtseva.ph" target="_blank" rel="noopener noreferrer" class="contact-btn">
+                    <div class="contact-btn-left">
+                        <span class="contact-platform">Instagram *</span>
+                        <span class="contact-label">@mamtseva.ph</span>
+                        <span class="contact-sub">Посмотреть ещё серии или написать в Директ</span>
+                    </div>
+                    <div class="contact-arrow">↗</div>
+                </a>
+
+                <a href="tel:+79295716800" class="contact-btn">
+                    <div class="contact-btn-left">
+                        <span class="contact-platform">Позвонить напрямую</span>
+                        <span class="contact-label">+7 (929) 571-68-00</span>
+                        <span class="contact-sub">Санкт-Петербург • Ежедневно</span>
+                    </div>
+                    <div class="contact-arrow">↗</div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- ======================= ПОДВАЛ ======================= -->
+    <footer>
+        <div class="container">
+            <p>© Все права принадлежат <strong>ARTWORK BY MAMTSEVS</strong> (Аделина и Даниил Мамцевы) • Санкт-Петербург</p>
+            <p style="font-size: 0.72rem; margin-top: 8px; opacity: 0.6;">* Meta Platforms Inc. (соцсеть Instagram) признана экстремистской организацией и запрещена на территории РФ.</p>
+        </div>
+    </footer>
+
+    <!-- ======================= СКРИПТ СИНХРОНИЗАЦИИ ТЕМЫ ======================= -->
+    <script>
+        (function() {
+            function safeGetTheme() {
+                try {
+                    return window.localStorage.getItem('mamtsev_theme') || 'light';
+                } catch (e) {
+                    return 'light';
+                }
+            }
+
+            function safeSaveTheme(val) {
+                try {
+                    window.localStorage.setItem('mamtsev_theme', val);
+                } catch (e) {}
+            }
+
+            const themeToggleBtn = document.getElementById('themeToggle');
+            const themeSvg = document.getElementById('themeSvg');
+            const themeText = document.getElementById('themeText');
+            const htmlEl = document.documentElement;
+
+            const moonPath = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+            const sunPath = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
+
+            function setTheme(theme) {
+                htmlEl.setAttribute('data-theme', theme);
+                safeSaveTheme(theme);
+                if (themeSvg && themeText) {
+                    if (theme === 'dark') {
+                        themeSvg.innerHTML = sunPath;
+                        themeText.textContent = 'Светлая';
+                    } else {
+                        themeSvg.innerHTML = moonPath;
+                        themeText.textContent = 'Темная';
+                    }
+                }
+            }
+
+            setTheme(safeGetTheme());
+
+            if (themeToggleBtn) {
+                themeToggleBtn.addEventListener('click', function() {
+                    const currentTheme = htmlEl.getAttribute('data-theme') || 'light';
+                    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                    setTheme(newTheme);
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
